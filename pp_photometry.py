@@ -260,8 +260,12 @@ def curve_of_growth_analysis(filenames, parameters,
             aprad_strategy = 'target+background fluxes > fluxlimit, ' + \
                              'flux difference minimal'
             optimum_aprad_idx = flux_select[numpy.argmin(flux_res)]
-
+    
     optimum_aprad = parameters['aprad'][optimum_aprad_idx]
+    
+    # added by Ewil
+    print('Optimum aprad calculated by PP is multiplied by 2.')
+    optimum_aprad = optimum_aprad * 2
 
     output['aprad_strategy'] = aprad_strategy
     output['optimum_aprad'] = optimum_aprad

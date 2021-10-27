@@ -7,7 +7,7 @@ dump/
 frost*
 
 # stuff we don't want to track
-setup/mytelescopes.py
+# setup/mytelescopes_bckp.py
 doc/_build/
 ppident_asteroids*
 ppident_variablestars*

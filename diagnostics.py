@@ -74,7 +74,7 @@ class Diagnostics_Html():
                 "<HTML>\n"
                 "<HEAD>\n"
                 "<TITLE>Photometry Pipeline - Diagnostics</TITLE>\n"
-                "<LINK rel=\"stylesheet\" href=\"{:s}"
+                "<LINK rel=\"stylesheet\" href=\"{:s}/"
                 "diagnostics_stylesheet.css\">\n"
                 "</HEAD>\n"
                 "<BODY>\n"
