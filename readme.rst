@@ -1,5 +1,19 @@
-Photometry Pipeline 
+Photometry Pipeline adapted for AMU IOA 
 ===================
+
+Changes applied to original Photometry Pipeline:
+-------------------
+
+* automatically found optimum aperture radius has been doubled
+* added new telescopes:
+
+  * RBT/PST2
+  * UBC
+
+* fixed css path
+  
+Original README below
+-------------------
 
 The Photometry Pipeline (PP) is a Python 3 software package for
 automated photometric analysis of imaging data from small to
