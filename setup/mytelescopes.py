@@ -231,7 +231,7 @@ telescope_parameters['UBC'] = ubc_param
 
 # GaiaGOSA Einari setup parameters
 einari_param = {
-    'telescope_instrument': 'Atik Camera',  # telescope/instrument name
+    'telescope_instrument': 'Einari/Atik',  # telescope/instrument name
     'telescope_keyword': 'Einari/Atik',  # telescope/instrument keyword
     'observatory_code': '',  # MPC observatory code
     'secpix': (4.55, 4.55),  # pixel size (arcsec) before binning
@@ -291,7 +291,7 @@ einari_param = {
 # add telescope configurations to 'official' telescopes.py
 implemented_telescopes.append('Einari/Atik')
 # translate INSTRUME (or others, see _pp_conf.py) header keyword into PP telescope keyword
-instrument_identifiers['Einari/Atik'] = 'Einari/Atik'
+instrument_identifiers['Atik Camera'] = 'Einari/Atik'
 # translate telescope keyword into parameter set defined here
 telescope_parameters['Einari/Atik'] = einari_param
 
