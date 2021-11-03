@@ -87,7 +87,7 @@ mytelescope_param = {
 
     # default catalog settings
     'astrometry_catalogs': ['GAIA'],
-    'photometry_catalogs': ['SDSS-R9', 'APASS9', '2MASS']
+    'photometry_catalogs': ['PANSTARRS', 'SDSS-R9', 'APASS9', '2MASS']
 }
 
 
@@ -130,7 +130,7 @@ rbt_param = {
     # source extractor settings
     'source_minarea': 12,  # default sextractor source minimum N_pixels
     'source_snr': 3,  # default sextractor source snr for registration
-    'aprad_default':10,  # default aperture radius in px
+    'aprad_default': 10,  # default aperture radius in px
     'aprad_range': [2, 15],  # [minimum, maximum] aperture radius (px)
     'sex-config-file': rootpath + '/setup/rbt.sex',
     'mask_file': {},
