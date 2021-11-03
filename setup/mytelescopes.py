@@ -228,3 +228,71 @@ instrument_identifiers['UBC'] = 'UBC'
 telescope_parameters['UBC'] = ubc_param
 
 # ------------------------------------------------------------------------------
+
+# GaiaGOSA Einari setup parameters
+einari_param = {
+    'telescope_instrument': 'Einari/Atik',  # telescope/instrument name
+    'telescope_keyword': 'Atik Camera',  # telescope/instrument keyword
+    'observatory_code': '',  # MPC observatory code
+    'secpix': (4.55, 4.55),  # pixel size (arcsec) before binning
+
+    # image orientation preferences
+    'flipx': False,
+    'flipy': False,
+    'rotate': 87.3,
+
+    # instrument-specific FITS header keywords
+    'binning': ('XBINNING', 'YBINNING'),  # binning in x/y
+    'extent': ('NAXIS1', 'NAXIS2'),  # N_pixels in x/y
+    'ra': 'CRVAL1',  # telescope pointing, RA
+    'dec': 'CRVAL2',  # telescope pointin, Dec
+    'radec_separator': 'XXX',  # RA/Dec hms separator, use 'XXX'
+    # if already in degrees
+    'date_keyword': 'DATE-OBS',  # obs date/time
+    # keyword; use
+    # 'date|time' if
+    # separate
+    'obsmidtime_jd': 'MJD-OBS',  # obs midtime jd keyword
+    # (usually provided by
+    # pp_prepare
+    'object': 'OBJECT',  # object name keyword
+    'filter': 'FILTER',  # filter keyword
+    'filter_translations': {'G': 'g'},
+    # filtername translation dictionary
+    'exptime': 'EXPOSURE',  # exposure time keyword (s)
+    'airmass': 'AIRMASS',  # airmass keyword
+
+    # source extractor settings
+    'source_minarea': 12,  # default sextractor source minimum N_pixels
+    'source_snr': 3,  # default sextractor source snr for registration
+    'aprad_default': 5,  # default aperture radius in px
+    'aprad_range': [2, 10],  # [minimum, maximum] aperture radius (px)
+    'sex-config-file': rootpath + '/setup/einari.sex',
+    'mask_file': {},
+    #                        mask files as a function of x,y binning
+
+    # scamp settings
+    'scamp-config-file': rootpath + '/setup/einari.scamp',
+    'reg_max_mag': 19,
+    'reg_search_radius': 0.5,  # deg
+    'source_tolerance': 'high',
+
+    # swarp settings
+    'copy_keywords': ('OBSERVAT,INSTRUME,EXPOSURE,OBJECT,' +
+                      'DATE-OBS,TEL_KEYW'),
+    #                        keywords to be copied in image
+    #                        combination using swarp
+    'swarp-config-file': rootpath + '/setup/einari.swarp',
+
+    # default catalog settings
+    'astrometry_catalogs': ['GAIA'],
+    'photometry_catalogs': ['PANSTARRS', 'SDSS-R9', 'APASS9', '2MASS']
+}
+# add telescope configurations to 'official' telescopes.py
+implemented_telescopes.append('Einari/Atik')
+# translate INSTRUME (or others, see _pp_conf.py) header keyword into PP telescope keyword
+instrument_identifiers['Einari/Atik'] = 'Einari/Atik'
+# translate telescope keyword into parameter set defined here
+telescope_parameters['Einari/Atik'] = einari_param
+
+ #-----------------------------------------------------------------------------
