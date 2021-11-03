@@ -231,8 +231,8 @@ telescope_parameters['UBC'] = ubc_param
 
 # GaiaGOSA Einari setup parameters
 einari_param = {
-    'telescope_instrument': 'Einari/Atik',  # telescope/instrument name
-    'telescope_keyword': 'Atik Camera',  # telescope/instrument keyword
+    'telescope_instrument': 'Atik Camera',  # telescope/instrument name
+    'telescope_keyword': 'Einari/Atik',  # telescope/instrument keyword
     'observatory_code': '',  # MPC observatory code
     'secpix': (4.55, 4.55),  # pixel size (arcsec) before binning
 
