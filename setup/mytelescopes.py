@@ -9,6 +9,10 @@ Faculty of Physics
 Adam Mickiewicz University in Poznań
 
 modified: 2021-10-13 by EWil
+
+2021-11-07 TK: Added definition of PIT
+               Corrected definitions of RBT, UBC
+
 """
 
 # Photometry Pipeline
@@ -90,6 +94,7 @@ mytelescope_param = {
     'photometry_catalogs': ['PANSTARRS', 'SDSS-R9', 'APASS9', '2MASS']
 }
 
+# ------------------------------------------------------------------------------
 
 # RBT
 rbt_param = {
@@ -99,8 +104,8 @@ rbt_param = {
     'secpix': (0.579, 0.579),  # pixel size (arcsec) before binning
 
     # image orientation preferences
-    'flipx': True,
-    'flipy': False,
+    'flipx': False,
+    'flipy': True,
     'rotate': 0,
 
     # instrument-specific FITS header keywords
@@ -169,8 +174,8 @@ ubc_param = {
     'secpix': (0.5156, 0.5156),  # pixel size (arcsec) before binning
 
     # image orientation preferences
-    'flipx': True,
-    'flipy': False,
+    'flipx': False,
+    'flipy': True,
     'rotate': 0,
 
     # instrument-specific FITS header keywords
@@ -189,10 +194,10 @@ ubc_param = {
     # pp_prepare
     'object': 'OBJECT',  # object name keyword
     'filter': 'FILTER',  # filter keyword
-    'filter_translations': {'I': 'I'},
+    'filter_translations': {'B': 'B', 'V': 'V', 'R': 'R', 'I': 'I'},
     # filtername translation dictionary
-    'exptime': 'EXPTIME',  # exposure time keyword (s)
-    'airmass': 'AIRMASS',  # airmass keyword
+    'exptime': 'EXPTIME',# exposure time keyword (s)
+    'airmass': 'TCSAM',  # airmass keyword
 
     # source extractor settings
     'source_minarea': 12,  # default sextractor source minimum N_pixels
@@ -234,7 +239,8 @@ einari_param = {
     'telescope_instrument': 'Einari/Atik',  # telescope/instrument name
     'telescope_keyword': 'Einari/Atik',  # telescope/instrument keyword
     'observatory_code': '',  # MPC observatory code
-    'secpix': (4.55, 4.55),  # pixel size (arcsec) before binning
+    # 'secpix': (4.55, 4.55),  # pixel size (arcsec) before binning
+    'secpix': (2.25, 2.25),  # pixel size (arcsec) before binning
 
     # image orientation preferences
     'flipx': False,
@@ -257,7 +263,7 @@ einari_param = {
     # pp_prepare
     'object': 'OBJECT',  # object name keyword
     'filter': 'FILTER',  # filter keyword
-    'filter_translations': {'G': 'g'},
+    'filter_translations': {'G': None},
     # filtername translation dictionary
     'exptime': 'EXPOSURE',  # exposure time keyword (s)
     'airmass': 'AIRMASS',  # airmass keyword
@@ -295,4 +301,74 @@ instrument_identifiers['Atik Camera'] = 'Einari/Atik'
 # translate telescope keyword into parameter set defined here
 telescope_parameters['Einari/Atik'] = einari_param
 
- #-----------------------------------------------------------------------------
+#-----------------------------------------------------------------------------
+# PIT: 0.4-m Poznań Imaging Telescope at Borowiec
+pit_param = {
+    'telescope_instrument': 'PIT',  # telescope/instrument name
+    'telescope_keyword': 'PIT',  # telescope/instrument keyword
+    'observatory_code': '187',   # MPC observatory code
+    'secpix': (1.031, 1.031),    # pixel size (arcsec) before binning
+
+    # image orientation preferences
+    'flipx': True,
+    'flipy': True,
+    'rotate': 0,
+
+    # instrument-specific FITS header keywords
+    'binning': (1, 1),  # binning in x/y
+    'extent': ('NAXIS1', 'NAXIS2'),  # N_pixels in x/y
+    'ra': 'RA',  # telescope pointing, RA
+    'dec': 'DEC',  # telescope pointin, Dec
+    'radec_separator': 'XXX',  # RA/Dec hms separator, use 'XXX'
+    # if already in degrees
+    'date_keyword': 'DATE-OBS',  # obs date/time
+    # keyword; use
+    # 'date|time' if
+    # separate
+    'obsmidtime_jd': 'JD',  # obs midtime jd keyword
+    # (usually provided by
+    # pp_prepare
+    'object': 'OBJECT',  # object name keyword
+    'filter': 'FILTER',  # filter keyword
+    'filter_translations': {'B': 'B', 'V': 'V',
+                            'R': 'R', 'I': 'I',
+                            'C': 'R'},
+    # filtername translation dictionary
+    'exptime': 'EXPTIME',  # exposure time keyword (s)
+    'airmass': 'AIRMASS',  # airmass keyword
+
+    # source extractor settings
+    'source_minarea': 12,  # default sextractor source minimum N_pixels
+    'source_snr': 3,  # default sextractor source snr for registration
+    'aprad_default': 10,  # default aperture radius in px
+    'aprad_range': [2, 15],  # [minimum, maximum] aperture radius (px)
+    'sex-config-file': rootpath + '/setup/rbt.sex',
+    'mask_file': {},
+    #                        mask files as a function of x,y binning
+
+    # scamp settings
+    'scamp-config-file': rootpath + '/setup/rbt.scamp',
+    'reg_max_mag': 19,
+    'reg_search_radius': 0.5,  # deg
+    'source_tolerance': 'high',
+    
+    # swarp settings
+    'copy_keywords': ('OBJNAME,EXPOSURE,FILTER,DATE,JD'),
+    #                        keywords to be copied in image
+    #                        combination using swarp
+    'swarp-config-file': rootpath+'/setup/rbt.swarp',
+
+    # default catalog settings
+    'astrometry_catalogs': ['GAIA'],
+    'photometry_catalogs': ['PANSTARRS', 'SDSS-R9', 'APASS9', '2MASS']
+}
+# add telescope configurations to 'official' telescopes.py
+implemented_telescopes.append('PIT')
+# translate INSTRUME (or others, see _pp_conf.py) header keyword into PP telescope keyword
+instrument_identifiers['PIT'] = 'PIT'
+# translate telescope keyword into parameter set defined here
+telescope_parameters['PIT'] = pit_param
+
+# ------------------------------------------------------------------------------
+ 
+ 
