@@ -12,6 +12,9 @@ modified: 2021-10-13 by EWil
 
 2021-11-07 TK: Added definition of PIT
                Corrected definitions of RBT, UBC
+               
+2021-11-25 TK: Corrected definition of PIT: shoud be flipped only
+               in x, not both in x and y, as it was before
 
 """
 
@@ -311,7 +314,7 @@ pit_param = {
 
     # image orientation preferences
     'flipx': True,
-    'flipy': True,
+    'flipy': False,
     'rotate': 0,
 
     # instrument-specific FITS header keywords
