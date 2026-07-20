@@ -1,22 +1,27 @@
 Photometry Pipeline adapted for AMU IOA 
 =======================================
 
-Changes and custom features applied to original Photometry Pipeline:
+Changes and custom features applied to original Photometry Pipeline
 ---------------------------------------------------------------------
 
 * **Core Algorithmic & Photometric Modifications (by EWil):**
-  * **Aperture Photometry:** Modified `pp_photometry` to multiply the automatically calculated optimum aperture radius by **3** (instead of original 2) for better flux integration.
-  * **Control Star Selection:** Updated `pp_calibrate.py` parameter `maxflag` from **3 to 5** to filter out overlapping/blended stars from being selected as calibration control stars.
+
+  * **Aperture Photometry:** Modified ``pp_photometry`` to multiply the automatically calculated optimum aperture radius by **3** (instead of original 2) for better flux integration.
+  * **Control Star Selection:** Updated ``pp_calibrate.py`` parameter ``maxflag`` from **3 to 5** to filter out overlapping/blended stars from being selected as calibration control stars.
   * Updated calibration routines and fixed CSS stylesheet path issues.
   * **Initial Telescope Setups:** Added initial definitions for **RBT/PST2** and **UBC** telescopes and set up the fork for AMU IOA.
 
 * **Subsequent Telescope Definitions & Corrections (by TK & PKol):**
+
   * **PST1 & RBT / PST2 updates:**
+
     * Refined definitions for **RBT** and **UBC**.
     * **PIT:** Added definition; updated frame orientation (flip x-axis only).
-    * **newRBT:** Added definition for observations post-October 2022 filter replacement (autodetected via `INSTRUME = RBT`). Legacy frames use `PST2/RBT`.
-    * **RBT2:** Added definition for observations post-15 Nov 2024 (installation of focal reducer; autodetected via `INSTRUME = RBT2`).
+    * **newRBT:** Added definition for observations post-October 2022 filter replacement (autodetected via ``INSTRUME = RBT``). Legacy frames use ``PST2/RBT``.
+    * **RBT2:** Added definition for observations post-15 Nov 2024 (installation of focal reducer; autodetected via ``INSTRUME = RBT2``).
+
   * **International Observatories:**
+
     * **DOAO:** 1.0-m telescope (South Korea).
     * **CAS:** 0.6-m Schmidt telescope at Calar Alto (Spain).
     * **ARO:** 0.33-m Abbey Ridge Observatory (Canada).
@@ -26,6 +31,7 @@ Changes and custom features applied to original Photometry Pipeline:
     * **Santa Maria de Montmagastrell:** Remote Observatory (Tàrrega, Spain).
 
 * **Maintainer / Fork:** Maintained and adapted for Astronomical Observatory Institute (IOA), Adam Mickiewicz University.
+
 
 Original README below
 -------------------
@@ -49,19 +55,19 @@ Installation
 PP requires `git`_ for the installation, a number of non-standard
 Python modules:
 
-  * `numpy`_
-  * `scipy`_
-  * `astropy`_
-  * `astroquery`_ (version >= 0.3.9)
-  * `matplotlib`_
-  * `future`_
-  * `skimage`_
-  * `pandas`_
-  
+* `numpy`_
+* `scipy`_
+* `astropy`_
+* `astroquery`_ (version >= 0.3.9)
+* `matplotlib`_
+* `future`_
+* `skimage`_
+* `pandas`_
+
 and some freely available software:
 
-  * `Source Extractor`_
-  * `SCAMP`_  
+* `Source Extractor`_
+* `SCAMP`_  
 
 PP is available from `github`_. You can get the source code by typing
 into your terminal::
