@@ -1,17 +1,32 @@
 Photometry Pipeline adapted for AMU IOA 
-===================
+=======================================
 
-Changes applied to original Photometry Pipeline:
--------------------
+Changes and custom features applied to original Photometry Pipeline:
+---------------------------------------------------------------------
 
-* automatically found optimum aperture radius has been doubled
-* added new telescopes:
+* **Core Algorithmic & Photometric Modifications (by EWil):**
+  * **Aperture Photometry:** Modified `pp_photometry` to multiply the automatically calculated optimum aperture radius by **3** (instead of original 2) for better flux integration.
+  * **Control Star Selection:** Updated `pp_calibrate.py` parameter `maxflag` from **3 to 5** to filter out overlapping/blended stars from being selected as calibration control stars.
+  * Updated calibration routines and fixed CSS stylesheet path issues.
+  * **Initial Telescope Setups:** Added initial definitions for **RBT/PST2** and **UBC** telescopes and set up the fork for AMU IOA.
 
-  * RBT/PST2
-  * UBC
+* **Subsequent Telescope Definitions & Corrections (by TK & PKol):**
+  * **PST1 & RBT / PST2 updates:**
+    * Refined definitions for **RBT** and **UBC**.
+    * **PIT:** Added definition; updated frame orientation (flip x-axis only).
+    * **newRBT:** Added definition for observations post-October 2022 filter replacement (autodetected via `INSTRUME = RBT`). Legacy frames use `PST2/RBT`.
+    * **RBT2:** Added definition for observations post-15 Nov 2024 (installation of focal reducer; autodetected via `INSTRUME = RBT2`).
+  * **International Observatories:**
+    * **DOAO:** 1.0-m telescope (South Korea).
+    * **CAS:** 0.6-m Schmidt telescope at Calar Alto (Spain).
+    * **ARO:** 0.33-m Abbey Ridge Observatory (Canada).
+    * **BGO:** 0.61-m Burke-Gaffney Observatory (Canada).
+    * **Pic du Midi:** 1.0-m telescope (France).
+    * **IAC80:** 0.8-m telescope at Teide Observatory.
+    * **Santa Maria de Montmagastrell:** Remote Observatory (Tàrrega, Spain).
 
-* fixed css path
-  
+* **Maintainer / Fork:** Maintained and adapted for Astronomical Observatory Institute (IOA), Adam Mickiewicz University.
+
 Original README below
 -------------------
 
