@@ -4121,7 +4121,7 @@ nextfli_param = {
     # pp_prepare
     'object': 'OBJECT',  # object name keyword
     'filter': 'FILTER',  # filter keyword
-    'filter_translations': {'V': 'V', 'R': 'R', 'B': 'B', 'g2': 'g', 'r2': 'r', 'i2': 'i'},
+    'filter_translations': {'V': 'V', 'R': 'R', 'B': 'B', 'g2': 'g', 'r2': 'r', 'i2': 'i', 'Sloan-r': 'r'},
     # filtername translation dictionary
     'exptime': 'EXPTIME',  # exposure time keyword (s)
     'airmass': 'AIRMASS',  # airmass keyword

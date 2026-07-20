@@ -264,8 +264,9 @@ def curve_of_growth_analysis(filenames, parameters,
     optimum_aprad = parameters['aprad'][optimum_aprad_idx]
     
     # added by Ewil
-    print('Optimum aprad calculated by PP is multiplied by 2.')
-    optimum_aprad = optimum_aprad * 2
+    # modified from 2 to 3 by PPoz (feel free to change it back if you need it for whatever reason)
+    print('Optimum aprad calculated by PP is multiplied by 3.')
+    optimum_aprad = optimum_aprad * 3
 
     output['aprad_strategy'] = aprad_strategy
     output['optimum_aprad'] = optimum_aprad

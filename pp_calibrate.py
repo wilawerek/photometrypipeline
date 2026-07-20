@@ -486,10 +486,10 @@ def derive_zeropoints(ref_cat, catalogs, filtername, minstars_external,
     ###
 
     return output
-
+    #PPoz changed maxflag value from 3 to 5
 
 def calibrate(filenames, minstars, manfilter, manualcatalog,
-              obsparam, maxflag=3,
+              obsparam, maxflag=5,
               magzp=None, solar=False,
               use_all_stars=False,
               display=False, diagnostics=False):
