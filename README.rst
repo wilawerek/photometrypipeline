@@ -6,8 +6,8 @@ Changes and custom features applied to original Photometry Pipeline
 
 * **Core Algorithmic & Photometric Modifications (by EWil):**
 
-  * **Aperture Photometry:** Modified ``pp_photometry`` to multiply the automatically calculated optimum aperture radius by **3** (instead of original 2) for better flux integration.
-  * **Control Star Selection:** Updated ``pp_calibrate.py`` parameter ``maxflag`` from **3 to 5** to filter out overlapping/blended stars from being selected as calibration control stars.
+  * **Aperture Photometry:** Modified ``pp_photometry`` to multiply the automatically calculated optimum aperture radius by **3** (TK) (instead of original 2 (EWil)) for better flux integration.
+  * **Control Star Selection:** Updated ``pp_calibrate.py`` parameter ``maxflag`` from **3** (EWIL) to **5** (TK) to filter out overlapping/blended stars from being selected as calibration control stars.
   * Updated calibration routines and fixed CSS stylesheet path issues.
   * **Initial Telescope Setups:** Added initial definitions for **RBT/PST2** and **UBC** telescopes and set up the fork for AMU IOA.
 
